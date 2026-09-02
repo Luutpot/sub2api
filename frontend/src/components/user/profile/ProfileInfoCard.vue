@@ -100,7 +100,7 @@
 
     <div class="space-y-6">
       <div data-testid="profile-main-column" class="space-y-6">
-        <section
+        <!--<section
           data-testid="profile-basics-panel"
           class="card border border-gray-100 bg-white/90 p-6 dark:border-dark-700 dark:bg-dark-900/50"
         >
@@ -130,7 +130,8 @@
               />
             </div>
           </div>
-        </section>
+         
+        </section> -->
 
         <section
           data-testid="profile-auth-bindings-panel"
@@ -183,8 +184,8 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Icon from '@/components/icons/Icon.vue'
-import ProfileAvatarCard from '@/components/user/profile/ProfileAvatarCard.vue'
-import ProfileEditForm from '@/components/user/profile/ProfileEditForm.vue'
+// import ProfileAvatarCard from '@/components/user/profile/ProfileAvatarCard.vue'
+// import ProfileEditForm from '@/components/user/profile/ProfileEditForm.vue'
 import ProfileIdentityBindingsSection from '@/components/user/profile/ProfileIdentityBindingsSection.vue'
 import type { User, UserAuthBindingStatus, UserAuthProvider, UserProfileSourceContext } from '@/types'
 

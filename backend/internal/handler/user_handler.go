@@ -83,9 +83,11 @@ type UpdateProfileRequest struct {
 	BalanceNotifyThreshold *float64 `json:"balance_notify_threshold"`
 }
 
+const userAvatarUploadDisabledMessage = "头像上传功能已禁用"
+
 type userProfileResponse struct {
 	dto.User
-	AvatarURL         string                                 `json:"avatar_url,omitempty"`
+	AvatarURL         string                                 `json:"avatar_url"`
 	AvatarSource      *userProfileSourceContext              `json:"avatar_source,omitempty"`
 	UsernameSource    *userProfileSourceContext              `json:"username_source,omitempty"`
 	DisplayNameSource *userProfileSourceContext              `json:"display_name_source,omitempty"`
@@ -170,6 +172,10 @@ func (h *UserHandler) UpdateProfile(c *gin.Context) {
 	var req UpdateProfileRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		response.BadRequest(c, "Invalid request: "+err.Error())
+		return
+	}
+	if req.AvatarURL != nil && strings.TrimSpace(*req.AvatarURL) != "" {
+		response.BadRequest(c, userAvatarUploadDisabledMessage)
 		return
 	}
 
@@ -544,11 +550,17 @@ func userProfileResponseFromService(user *service.User, identities service.UserI
 		return userProfileResponse{}
 	}
 	bindings := userProfileBindingMap(identities)
-	profileSources, avatarSource, usernameSource := inferUserProfileSources(user, identities)
+	profileSources, _, usernameSource := inferUserProfileSources(user, identities)
+	if profileSources != nil {
+		delete(profileSources, "avatar")
+		if len(profileSources) == 0 {
+			profileSources = nil
+		}
+	}
 	return userProfileResponse{
 		User:              *base,
-		AvatarURL:         user.AvatarURL,
-		AvatarSource:      avatarSource,
+		AvatarURL:         "",
+		AvatarSource:      nil,
 		UsernameSource:    usernameSource,
 		DisplayNameSource: usernameSource,
 		NicknameSource:    usernameSource,
