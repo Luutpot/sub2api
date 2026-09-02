@@ -160,3 +160,4 @@ output/
 
 /cux/dev/postgres_data
 /cux/dev/redis_data
+!cux/dev/.env
