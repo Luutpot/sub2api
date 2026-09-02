@@ -1,0 +1,2808 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快速开始</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+  <div class="mobile-topbar">
+    <select aria-label="页面目录" onchange="handleMobileNav(this)">
+      <option value="#start">开始使用</option>
+      <option value="#ccswitch">CC Switch</option>
+      <option value="#codex-cli">Codex CLI</option>
+      <option value="#codex-app">Codex App</option>
+      <option value="#claude-cli">Claude Code CLI</option>
+      <option value="#claude-app">Claude App</option>
+      <option value="#agent-manual">小龙虾配置</option>
+      <option value="#pricing">价格说明</option>
+      <option value="#faq">常见问题</option>
+    </select>
+  </div>
+
+  <div class="shell">
+    <main class="main">
+      <header class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><i data-lucide="flame"></i>从密钥到客户端启动</div>
+          <h1>快速开始</h1>
+          <p class="hero-text">从用户注册、密钥分组到客户端启动，按顺序完成 Codex 与 Claude Code 配置。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#start"><i data-lucide="play"></i>开始配置</a>
+            <a class="button" href="https://api.lutpot.cn/" target="_blank" rel="noreferrer"><i data-lucide="external-link"></i>LUTPOT</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="配置路线预览">
+          <div class="hero-panel-head">
+            <span>配置路线</span>
+            <span class="hero-status">按顺序执行</span>
+          </div>
+          <figure class="hero-snapshot">
+            <img src="assets/image0.webp" alt="CC Switch 使用流程截图">
+            <figcaption>一切准备就绪，欢迎来到 LUTPOT</figcaption>
+          </figure>
+          <ol class="route-list">
+            <li>
+              <span>01</span>
+              <div><strong>用户注册</strong><small>注册后登录平台，兑换或充值后再创建密钥</small></div>
+            </li>
+            <li>
+              <span>02</span>
+              <div><strong>选择分组</strong><small>Codex 用 codex，Claude 用 claude</small></div>
+            </li>
+            <li>
+              <span>03</span>
+              <div><strong>导入 CCS</strong><small>用 CC Switch 管理客户端配置</small></div>
+            </li>
+          </ol>
+        </aside>
+      </header>
+
+      <div class="content">
+        <section class="quick-grid" aria-label="核心流程">
+          <article class="quick-card">
+            <span>1</span>
+            <h2>充值或兑换</h2>
+            <p>先让账户有可用金额，后续密钥才能正常调用模型。</p>
+          </article>
+          <article class="quick-card">
+            <span>2</span>
+            <h2>创建密钥</h2>
+            <p>根据工具类型选择分组，Codex 与 Claude 不要混用。</p>
+          </article>
+          <article class="quick-card">
+            <span>3</span>
+            <h2>导入 CCS</h2>
+            <p>推荐使用 CC Switch 统一管理 API、模型和配置。</p>
+          </article>
+          <article class="quick-card">
+            <span>4</span>
+            <h2>启动工具</h2>
+            <p>打开 Codex App，或在终端启动 Codex / Claude Code CLI。</p>
+          </article>
+        </section>
+
+        <section id="start" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="rocket"></i>基础准备</div>
+              <h2>开始使用</h2>
+              <p class="section-desc">完成账户金额准备后，创建密钥并选择对应分组。这里是后续所有配置是否成功的前置条件。</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <i data-lucide="triangle-alert"></i>
+            <div>
+              <strong>分组必须选对</strong>
+              GPT 系列模型和 Codex 选择 <code>codex</code> 分组；Claude 系列模型选择 <code>claude</code> 分组。
+              <div class="pills">
+                <span class="pill">Codex / GPT -> codex</span>
+                <span class="pill">Claude Code -> claude</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <ol class="step-list">
+                <li class="step">
+                  <span class="step-number">01</span>
+                  <div>
+                    <h3>兑换或充值金额</h3>
+                    <p>先在 <a href="https://api.lutpot.cn/" target="_blank" rel="noreferrer">LUTPOT</a> 完成兑换或充值，确保账户中有对应金额可用。<strong class="text-danger">充值 1 元人民币 = 1$ 额度</strong>。</p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-number">02</span>
+                  <div>
+                    <h3>创建 API 密钥</h3>
+                    <p>创建密钥时同步选择分组。Codex 使用 codex 分组，Claude 使用 claude 分组。</p>
+                  </div>
+                </li>
+              </ol>
+
+              <div class="media-grid">
+                <details class="shot">
+                  <summary>查看截图：充值入口</summary>
+                  <div class="shot-frame"><img src="assets/image1.webp" alt="充值或兑换金额页面截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：购买卡密</summary>
+                  <div class="shot-frame"><img src="assets/image2.webp" alt="金额确认页面截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Codex 分组</summary>
+                  <div class="shot-frame"><img src="assets/image3.webp" alt="创建 Codex 分组密钥截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Claude 分组</summary>
+                  <div class="shot-frame"><img src="assets/image4.webp" alt="创建 Claude 分组密钥截图"></div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="ccswitch" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="key-round"></i>密钥管理</div>
+              <h2>使用 CC Switch 管理密钥</h2>
+              <p class="section-desc">CC Switch 是开源的 AI 编程工具配置切换器，可统一管理 Claude Code、Codex、Open Claw 等工具的 API、模型和 MCP 配置。</p>
+            </div>
+          </div>
+
+        
+          <div class="panel">
+            <div class="panel-body">
+              <ul class="link-list">
+                <li>
+                  <i data-lucide="download"></i>
+                  <div>
+                    下载地址：<a href="https://ccswitch.io" target="_blank" rel="noreferrer">https://ccswitch.io</a>
+                  </div>
+                </li>
+                <li>
+                  <i data-lucide="mouse-pointer-click"></i>
+                  <div>安装完成后，进入 LUTPOT 的 API 密钥界面，点击 <strong>导入到 CCS</strong>。</div>
+                </li>
+                <li>
+                  <i data-lucide="badge-alert"></i>
+                  <div>平台的 <code>codex</code> 分组对应 CC Switch 的 codex 分组；平台的 <code>claude</code> 分组对应 CC Switch 的 claude code 分组。</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        
+          <!-- <div class="panel">
+            <div class="panel-body">
+              <h3 style="margin:0 0 12px;font-size:18px;">手动导入方法</h3>
+              <ol class="checklist">
+                <li><span class="check">1</span><span>切换到对应标签页，例如 codex 或 openclaw。</span></li>
+                <li><span class="check">2</span><span>点击右上角的 <strong>+</strong> 号。</span></li>
+                <li><span class="check">3</span><span>根据页面提示完成配置。</span></li>
+              </ol>
+            </div>
+          </div> -->
+
+          <div class="media-grid">
+            <details class="shot">
+              <summary>查看截图：导入到 CCS</summary>
+              <div class="shot-frame"><img src="assets/image5.webp" alt="导入到 CCS 操作截图"></div>
+            </details>
+            <details class="shot">
+              <summary>查看截图：CC Switch 使用流程</summary>
+              <div class="shot-frame"><img src="assets/image7.webp" alt="CC Switch 使用流程截图"></div>
+            </details>
+            <!-- <details class="shot">
+              <summary>查看截图：手动导入配置</summary>
+              <div class="shot-frame"><img src="assets/image8.webp" alt="手动导入配置截图"></div>
+            </details> -->
+          </div>
+        </section>
+
+        <section id="agent-manual" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="wrench"></i>小龙虾配置</div>
+              <h2>OpenClaw / Harmes 手动配置</h2>
+              <p class="section-desc">OpenClaw 可通过模型供应商配置接入自定义接口，Harmes 没有自动导入入口时，也按 OpenAI Compatible / Custom Provider 的方式填写平台接口信息。</p>
+            </div>
+          </div>
+
+          <div class="agent-setup">
+            <div>
+              <strong>先回到密钥管理页面复制三项信息</strong>
+              <p>点击 <b>使用密钥</b>，复制页面提供的 Base URL、API Key 和模型名称。GPT / Codex / OpenAI 兼容工具优先使用 <code>codex</code> 分组；Claude 兼容工具使用 <code>claude</code> 分组。</p>
+            </div>
+            <div class="pills">
+              <span class="pill">Base URL</span>
+              <span class="pill">API Key</span>
+              <span class="pill">Model</span>
+            </div>
+          </div>
+
+          <div class="agent-tool-grid">
+            <article class="agent-tool-card">
+              <div class="agent-tool-head">
+                <i data-lucide="terminal-square"></i>
+                <div>
+                  <h3>OpenClaw 手动配置</h3>
+                  <p>适合需要直接配置模型供应商、默认模型和 Gateway 的用户。</p>
+                </div>
+              </div>
+              <ol class="agent-steps">
+                <li>
+                  <span>01</span>
+                  <p><strong>进入配置</strong>执行 <code>openclaw onboard --install-daemon</code>，或打开 <code>openclaw dashboard</code> 进入模型供应商配置。</p>
+                </li>
+                <li>
+                  <span>02</span>
+                  <p><strong>新增供应商</strong>选择 Custom Provider、OpenAI Compatible 或同类入口，供应商名称可以写 <b>LUTPOT</b>。</p>
+                </li>
+                <li>
+                  <span>03</span>
+                  <p><strong>填写模型</strong>Base URL 填 <code>baseUrl</code>，API Key 填 <code>apiKey</code>；默认模型按 <code>provider/model</code> 选择，例如 <code>gpt-5.5</code>。</p>
+                </li>
+                <li>
+                  <span>04</span>
+                  <p><strong>保存验证</strong>执行 <code>openclaw models list</code> 检查模型，再发一条短消息测试；不生效时重启 OpenClaw Gateway。</p>
+                </li>
+              </ol>
+              <div class="agent-doc-link">
+                <i data-lucide="external-link"></i>
+                <div>官方参考：<a href="https://docs.openclaw.ai/start/getting-started" target="_blank" rel="noreferrer">Getting started</a>、<a href="https://docs.openclaw.ai/providers" target="_blank" rel="noreferrer">Provider directory</a>、<a href="https://docs.openclaw.ai/concepts/model-providers" target="_blank" rel="noreferrer">Model providers</a>。</div>
+              </div>
+            </article>
+
+            <article class="agent-tool-card">
+              <div class="agent-tool-head">
+                <i data-lucide="bot"></i>
+                <div>
+                  <h3>Harmes 手动配置</h3>
+                  <p>适合客户端没有自动导入入口，需要手动填写接口信息的情况。</p>
+                </div>
+              </div>
+              <ol class="agent-steps">
+                <li>
+                  <span>01</span>
+                  <p><strong>进入模型设置</strong>打开 Settings / Model / Provider 页面，优先查找 OpenAI Compatible、Custom API 或自定义模型供应商。</p>
+                </li>
+                <li>
+                  <span>02</span>
+                  <p><strong>选择兼容接口</strong>接口类型选择 OpenAI 兼容；如区分 Chat、Reasoning、Embedding，先只配置聊天 / 推理模型。</p>
+                </li>
+                <li>
+                  <span>03</span>
+                  <p><strong>复制平台字段</strong>Base URL 填平台接口地址，API Key 填平台密钥，Model 填完整模型名，不要修改大小写。</p>
+                </li>
+                <li>
+                  <span>04</span>
+                  <p><strong>保存并重启</strong>重新选择该供应商和模型；仍走旧配置时，检查项目级配置是否覆盖了全局配置。</p>
+                </li>
+              </ol>
+            </article>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <h3 style="margin:0 0 12px;font-size:18px;">字段对应表</h3>
+              <div class="agent-field-grid">
+                <div class="agent-field">
+                  <strong>Base URL</strong>
+                  <p>填写使用密钥页面里的接口地址，对应 Base URL、API Base、Endpoint 或 Server URL。</p>
+                </div>
+                <div class="agent-field">
+                  <strong>API Key</strong>
+                  <p>填写平台密钥；客户端要求 Header 时使用 <code>Authorization: Bearer API_KEY</code>。</p>
+                </div>
+                <div class="agent-field">
+                  <strong>Model</strong>
+                  <p>填写平台展示的模型名称。OpenClaw 设置默认模型时按 <code>provider/model</code> 格式选择。</p>
+                </div>
+                <div class="agent-field">
+                  <strong>Provider Type</strong>
+                  <p>优先选择 OpenAI Compatible / Custom OpenAI；Claude 兼容模式才使用 Anthropic 类型。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <h3 style="margin:0 0 12px;font-size:18px;">常见报错快速判断</h3>
+              <ul class="link-list">
+                <li>
+                  <i data-lucide="badge-alert"></i>
+                  <div><code>401</code>：API Key 复制错误、密钥被禁用，或客户端没有保存成功。</div>
+                </li>
+                <li>
+                  <i data-lucide="badge-alert"></i>
+                  <div><code>404</code>：模型名写错，或密钥分组和模型类型不匹配。</div>
+                </li>
+                <li>
+                  <i data-lucide="wifi"></i>
+                  <div>请求超时：检查网络代理、Base URL 是否完整，以及客户端是否需要开启系统代理。</div>
+                </li>
+                <li>
+                  <i data-lucide="wrench"></i>
+                  <div>配置无效：保存后重启客户端，确认项目级配置没有覆盖全局配置。</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="codex-cli" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="terminal-square"></i>命令行</div>
+              <h2>Codex CLI 使用</h2>
+              <p class="section-desc">先安装 Node.js 20 或以上版本，再通过 npm 安装 Codex CLI。已安装 Node.js 的用户可以直接跳过环境安装。</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <ol class="step-list">
+                <li class="step">
+                  <span class="step-number">01</span>
+                  <div>
+                    <h3>检查 Node.js</h3>
+                    <p>在终端输入 <code>node -v</code>。如果未安装，请从 <a href="https://nodejs.org/zh-cn/download" target="_blank" rel="noreferrer">Node.js 官网</a> 下载安装包，安装时按提示完成。</p>
+                    <div class="command-stack">
+                      <div class="command"><code>node -v</code><button class="copy-btn" data-copy="node -v" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-number">02</span>
+                  <div>
+                    <h3>安装 Codex CLI</h3>
+                    <div class="command-stack">
+                      <div class="command"><code>npm i -g @openai/codex</code><button class="copy-btn" data-copy="npm i -g @openai/codex" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-number">03</span>
+                  <div>
+                    <h3>国内镜像源备用</h3>
+                    <p>如果安装失败或下载缓慢，可以先指定镜像源，再重新执行安装命令。</p>
+                    <div class="command-stack">
+                      <div class="command"><code>npm config set registry https://registry.npmmirror.com</code><button class="copy-btn" data-copy="npm config set registry https://registry.npmmirror.com" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                      <div class="command"><code>npm i -g @openai/codex</code><button class="copy-btn" data-copy="npm i -g @openai/codex" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-number">04</span>
+                  <div>
+                    <h3>验证安装</h3>
+                    <div class="command-stack">
+                      <div class="command"><code>codex --version</code><button class="copy-btn" data-copy="codex --version" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-number">05</span>
+                  <div>
+                    <h3>确认并启动</h3>
+                    <p>确保 CC Switch 中已正确导入 Codex 密钥。随后在终端输入以下命令启动。</p>
+                    <div class="command-stack">
+                      <div class="command"><code>codex</code><button class="copy-btn" data-copy="codex" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+
+              <div class="media-grid">
+                <details class="shot">
+                  <summary>查看截图：Codex 密钥配置</summary>
+                  <div class="shot-frame"><img src="assets/image8.webp" alt="Claude 密钥配置截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Node.js 安装选项</summary>
+                  <div class="shot-frame"><img src="assets/image10.png" alt="Node.js 安装选项截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Node 版本验证</summary>
+                  <div class="shot-frame"><img src="assets/image11.png" alt="Node 版本验证截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Codex CLI 安装完成</summary>
+                  <div class="shot-frame"><img src="assets/image12.png" alt="Codex CLI 安装完成截图"></div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="codex-app" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="app-window"></i>桌面客户端</div>
+              <h2>Codex App 使用</h2>
+              <p class="section-desc">如果已经通过 CC Switch 成功导入配置，安装后可以直接打开使用，无需登录。</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <ul class="link-list">
+                <li>
+                  <i data-lucide="external-link"></i>
+                  <div>官方下载地址：<a href="https://openai.com/zh-Hans-CN/codex/" target="_blank" rel="noreferrer">https://openai.com/zh-Hans-CN/codex/</a></div>
+                </li>
+                <li>
+                  <i data-lucide="monitor-down"></i>
+                  <div>如果官方下载访问有问题或下载不下来，再使用 <a href="https://ark-auto-2104154383-cn-beijing-default.tos-cn-beijing.volces.com/nhs/Codex-win-x64-26.513.40821.zip" target="_blank" rel="noreferrer">Windows 重编译版本</a>，下载后解压即可使用。</div>
+                </li>
+              </ul>
+
+              <div class="media-grid">
+                <details class="shot">
+                  <summary>查看截图：Codex App 入口</summary>
+                  <div class="shot-frame"><img src="assets/image9.webp" alt="Codex App 入口截图"></div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="claude-cli" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="bot"></i>Claude Code</div>
+              <h2>Claude Code CLI 使用</h2>
+              <p class="section-desc">前期步骤与 Codex CLI 一致，都需要 Node.js 环境。不同之处是安装命令和 CC Switch 中对应的配置分组。</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <div class="command-stack">
+                <div class="command"><code>npm install -g @anthropic-ai/claude-code@latest</code><button class="copy-btn" data-copy="npm install -g @anthropic-ai/claude-code@latest" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+                <div class="command"><code>claude</code><button class="copy-btn" data-copy="claude" aria-label="复制命令"><i data-lucide="copy"></i></button></div>
+              </div>
+
+              <div class="callout green" style="margin-top:14px;">
+                <i data-lucide="list-checks"></i>
+                <div>
+                  <strong>启动前确认三件事</strong>
+                  <ul class="checklist">
+                    <li><span class="check">✓</span><span>已在平台创建 Claude 密钥。</span></li>
+                    <li><span class="check">✓</span><span>已将密钥导入 CC Switch。</span></li>
+                    <li><span class="check">✓</span><span>已在 CC Switch 中确保 Claude Code 配置正确。</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="callout" style="margin-top:14px;">
+                <i data-lucide="wifi"></i>
+                <div>
+                  <strong>网络连通性建议</strong>
+                  在 CC Switch 左上角的设置中打开 <b>使用系统代理</b> 开关。
+                </div>
+              </div>
+
+              <div class="media-grid">
+                <details class="shot">
+                  <summary>查看截图：Claude 密钥配置</summary>
+                  <div class="shot-frame"><img src="assets/image14.webp" alt="Claude 密钥配置截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：使用系统代理</summary>
+                  <div class="shot-frame"><img src="assets/image15.webp" alt="CC Switch 使用系统代理截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Claude 命令</summary>
+                  <div class="shot-frame"><img src="assets/image16.webp" alt="Claude 命令截图"></div>
+                </details>
+                <details class="shot">
+                  <summary>查看截图：Claude 启动结果</summary>
+                  <div class="shot-frame"><img src="assets/image17.webp" alt="Claude 启动结果截图"></div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="claude-app" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="app-window"></i>桌面客户端</div>
+              <h2>Claude App 使用</h2>
+              <p class="section-desc">访问 Claude 官方网站，或使用官方 Windows x64 下载直链安装桌面客户端。</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-body">
+              <ul class="link-list">
+                <li>
+                  <i data-lucide="external-link"></i>
+                  <div>官方网址：<a href="https://claude.ai" target="_blank" rel="noreferrer">https://claude.ai</a></div>
+                </li>
+                <li>
+                  <i data-lucide="monitor-down"></i>
+                  <div>Windows x64 官方下载：<a href="https://claude.ai/api/desktop/win32/x64/setup/latest/redirect" target="_blank" rel="noreferrer">下载 Claude App 安装程序</a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="badge-dollar-sign"></i>模型费用</div>
+              <h2>价格说明</h2>
+              <p class="section-desc">GPT、Claude 与 DeepSeek V4 Pro 的每 100 万 Tokens 参考价格总览。</p>
+            </div>
+          </div>
+
+          <div class="pricing-overview">
+            <div class="pricing-summary">
+              <span class="pricing-unit">人民币 / 标准短上下文 / 每 100 万 Tokens</span>
+              <h3>模型价格概览</h3>
+              <p>GPT 系列已按 OpenAI 官方 Standard / Short context 价格同步。</p>
+              <p><b class="pricing-danger">官方每 $1 对应我们的 ¥0.1</b>，例如官方输入 $5，模型价格为 ¥0.5。</p>
+            </div>
+            <div class="pricing-metrics" aria-label="低价重点">
+              <div class="pricing-metric"><span>GPT-5.6 Sol 输入</span><strong>¥0.50</strong><small>官方 $5.00，按统一倍率同步</small></div>
+              <div class="pricing-metric"><span>GPT-5.6 Sol 输出</span><strong>¥3.00</strong><small>官方 $30.00，约为人民币参考价的 1.5%</small></div>
+              <div class="pricing-metric"><span>GPT-5.6 Terra 输出</span><strong>¥1.50</strong><small>官方 $15.00，兼顾能力与成本</small></div>
+              <div class="pricing-metric"><span>GPT-5.6 Luna 输入</span><strong>¥0.10</strong><small>官方 $1.00，适合高吞吐任务</small></div>
+            </div>
+          </div>
+
+          <p class="pricing-source">
+            GPT 官方价格采用 Standard / Short context、每 100 万 Tokens 单价，2026-07-10 同步；我们的 GPT 价格按“官方美元数值 × 0.1 = 人民币价格”设置。官方人民币参考按 1 USD ≈ ¥6.8 折算，仅用于总览展示。长上下文、Batch、Flex、Priority 与区域处理价格不纳入本页总览。DeepSeek V4 Pro 参考价按公开价格页面收集到的美元价折算，时间为 2026-07-03。模型、渠道与价格可能调整，最终以 LUTPOT 控制台实际扣费记录为准。
+            <br><br>
+            官方参考价来源：
+            <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noreferrer">OpenAI API Pricing</a>、
+            <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noreferrer">Anthropic Claude Pricing</a>、
+            <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noreferrer">DeepSeek Models &amp; Pricing</a>。
+          </p>
+        </section>
+
+        <section id="faq" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="circle-help"></i>排查</div>
+              <h2>常见问题</h2>
+              <p class="section-desc">如果 CC Switch 配置没有生效，优先检查工具安装路径和配置文件目录。</p>
+            </div>
+          </div>
+
+          <div class="panel faq">
+            <details>
+              <summary>CC Switch 配置为什么没有生效？</summary>
+              <div class="faq-answer">
+                <ol class="step-list">
+                  <li class="step">
+                    <span class="step-number">01</span>
+                    <div>
+                      <h3>检查工具安装路径</h3>
+                      <p>确认对应 AI Agent 工具的安装路径是否正确。</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">02</span>
+                    <div>
+                      <h3>打开配置文件目录</h3>
+                      <p>前往 <strong>CC Switch -> 设置 -> 高级 -> 配置文件目录</strong>。</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">03</span>
+                    <div>
+                      <h3>设置并重启</h3>
+                      <p>将配置文件目录设置为 AI Agent 工具的正确安装路径，最后重启对应的 AI Agent 工具。</p>
+                    </div>
+                  </li>
+                </ol>
+                <div class="media-grid">
+                  <details class="shot">
+                    <summary>查看截图：配置文件目录</summary>
+                    <div class="shot-frame"><img src="assets/image18.webp" alt="CC Switch 配置文件目录截图"></div>
+                  </details>
+                </div>
+              </div>
+            </details>
+            <details>
+              <summary>Codex 插件不能使用怎么办？</summary>
+              <div class="faq-answer">
+                <ol class="step-list">
+                  <li class="step">
+                    <span class="step-number">01</span>
+                    <div>
+                      <h3>安装 Codex++</h3>
+                      <p>如果 Codex 插件入口无法使用或功能受限，推荐先安装 <strong>Codex++</strong> 来解锁插件能力。</p>
+                    </div>
+                  </li>
+                  <li class="step">
+                    <span class="step-number">02</span>
+                    <div>
+                      <h3>重启后再检查</h3>
+                      <p>安装完成后重启 Codex，再回到插件入口确认插件功能是否恢复。</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <!-- <footer class="footer">
+            内容已整理为适合浏览和检索的在线使用手册，操作截图可展开并点击放大查看。
+          </footer> -->
+        </section>
+      </div>
+    </main>
+
+    <aside class="sidebar" aria-label="文档导航">
+      <nav class="toc">
+        <a href="#start" class="is-active"><i data-lucide="rocket"></i><span>开始使用</span></a>
+        <a href="#ccswitch"><i data-lucide="key-round"></i><span>CC Switch</span></a>
+        <a href="#codex-cli"><i data-lucide="terminal-square"></i><span>Codex CLI</span></a>
+        <a href="#codex-app"><i data-lucide="app-window"></i><span>Codex App</span></a>
+        <a href="#claude-cli"><i data-lucide="bot"></i><span>Claude Code CLI</span></a>
+        <a href="#claude-app"><i data-lucide="app-window"></i><span>Claude App</span></a>
+        <a href="#agent-manual"><i data-lucide="wrench"></i><span>小龙虾配置</span></a>
+        <a href="#pricing"><i data-lucide="badge-dollar-sign"></i><span>价格说明</span></a>
+        <a href="#faq"><i data-lucide="circle-help"></i><span>常见问题</span></a>
+      </nav>
+
+      <!-- <p class="side-title">关键规则</p>
+      <div class="side-note">
+        GPT / Codex 使用 <strong>codex</strong> 分组；Claude Code 使用 <strong>claude</strong> 分组。分组选错会导致后续配置不生效。
+      </div> -->
+    </aside>
+  </div>
+
+  <div class="lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-label="图片放大预览">
+    <button class="lightbox-close" type="button" aria-label="关闭图片预览"><i data-lucide="x"></i></button>
+    <img src="" alt="">
+  </div>
+
+  <!-- Styles -->
+  <style>
+    /* Base layout and shared components */
+    :root {
+      color-scheme: light;
+      --bg: #f6f7f2;
+      --panel: #ffffff;
+      --panel-soft: #fbfcf8;
+      --ink: #17211d;
+      --muted: #66736e;
+      --line: #dfe5dd;
+      --line-strong: #c9d3cc;
+      --green: #1f7a5a;
+      --green-deep: #145d45;
+      --coral: #d45b45;
+      --amber: #b8771d;
+      --teal: #1b7280;
+      --shadow: 0 18px 50px rgba(21, 38, 31, .10);
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --sans: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.84), rgba(246,247,242,.92) 420px),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--green-deep);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    button,
+    summary {
+      font: inherit;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      max-height: calc(100vh - 48px);
+      padding: 24px 20px;
+      border-left: 1px solid var(--line);
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(16px);
+      overflow: auto;
+    }
+
+    .toc {
+      margin: 0 0 22px;
+    }
+
+    .side-title {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 7px 9px;
+      border-radius: 8px;
+      color: #2d3a35;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      background: #eef4ee;
+      color: var(--green-deep);
+    }
+
+    .toc svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    .side-note {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .hero {
+      padding: 56px clamp(20px, 5vw, 72px) 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border: 1px solid #cddbd2;
+      border-radius: 8px;
+      background: #f8fbf7;
+      color: var(--green-deep);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .eyebrow svg,
+    .button svg,
+    .copy-btn svg,
+    .section-kicker svg,
+    .callout svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: 64px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .hero-text {
+      max-width: 780px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 9px 13px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button.primary {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(31, 122, 90, .20);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .content {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 34px clamp(18px, 4vw, 48px) 76px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .quick-card {
+      min-height: 132px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(21, 38, 31, .06);
+    }
+
+    .quick-card span {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: #edf5ef;
+      color: var(--green-deep);
+      font-weight: 800;
+    }
+
+    .quick-card h2 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .doc-section {
+      scroll-margin-top: 28px;
+      margin-top: 34px;
+      padding-top: 8px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green-deep);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 6px 0 0;
+      font-size: 36px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .section-desc {
+      max-width: 800px;
+      margin: 9px 0 0;
+      color: var(--muted);
+    }
+
+    .panel {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .panel + .panel,
+    .callout + .panel,
+    .panel + .callout {
+      margin-top: 14px;
+    }
+
+    .panel-body {
+      padding: 0;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #17211d;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 0 0 5px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .callout {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid #dfcab7;
+      border-left: 4px solid var(--coral);
+      border-radius: 8px;
+      background: #fff8f3;
+      color: #4a3028;
+    }
+
+    .callout.green {
+      border-color: #c8ddd1;
+      border-left-color: var(--green);
+      background: #f3faf5;
+      color: #1f3b31;
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 30px;
+      padding: 4px 9px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: #fff;
+      color: #27372f;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    details.shot {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    details.shot summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 11px 13px;
+      color: #24342d;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    details.shot summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.shot summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      color: var(--green-deep);
+      font-weight: 800;
+    }
+
+    details.shot[open] summary::after {
+      content: "-";
+    }
+
+    .shot-frame {
+      padding: 0 12px 12px;
+    }
+
+    .shot-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f6f7f2;
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(12, 18, 15, .82);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox img {
+      display: block;
+      max-width: min(1180px, 96vw);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 8px;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,.20);
+    }
+
+    .lightbox-close svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      gap: 14px;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .link-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-soft);
+    }
+
+    .link-list svg {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      color: var(--teal);
+      flex: 0 0 auto;
+    }
+
+    .command-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .command {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 12px 12px 14px;
+      border: 1px solid #26372f;
+      border-radius: 8px;
+      background: #101916;
+      color: #eaf5ef;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: .94em;
+    }
+
+    .command code {
+      overflow-wrap: anywhere;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,255,255,.16);
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      border-radius: 8px;
+      background: #e7f4ec;
+      color: var(--green-deep);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .faq details {
+      border-top: 1px solid var(--line);
+    }
+
+    .panel.faq {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq .step {
+      border: 0;
+      border-top: 1px dashed var(--line);
+      border-radius: 0;
+      background: transparent;
+      padding: 14px 0;
+    }
+
+    .faq .step:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .faq details.shot {
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      border-radius: 0;
+    }
+
+    .faq details:first-child {
+      border-top: 0;
+    }
+
+    .faq summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary::after {
+      content: "+";
+      color: var(--green-deep);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .faq details[open] summary::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px;
+    }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mobile-topbar {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .mobile-topbar select {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 10px;
+      font: inherit;
+    }
+
+    @media (max-width: 1040px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-topbar {
+        display: block;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding-top: 34px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .quick-grid,
+      .media-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .step-number {
+        width: 32px;
+        height: 32px;
+      }
+
+      .content {
+        padding-bottom: 46px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    @media print {
+      .sidebar,
+      .mobile-topbar,
+      .hero-actions,
+      .copy-btn {
+        display: none;
+      }
+
+      .shell {
+        display: block;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .hero,
+      .content {
+        padding: 24px;
+      }
+
+      .panel,
+      .quick-card {
+        box-shadow: none;
+      }
+    }
+  
+
+    /* Visual theme and page-specific components */
+    :root {
+      color-scheme: light;
+      --bg: #eff2ec;
+      --paper: #fdfdf8;
+      --paper-soft: #f7f8f1;
+      --paper-strong: #ffffff;
+      --ink: #111814;
+      --muted: #5e6a63;
+      --muted-2: #7b867f;
+      --line: #d7ded4;
+      --line-strong: #b9c5bb;
+      --accent: #177a52;
+      --accent-deep: #0e5b3c;
+      --accent-soft: #e2f1e8;
+      --warning: #b24f38;
+      --command: #0f1713;
+      --shadow: 0 22px 58px rgba(20, 34, 27, .11);
+      --shadow-tight: 0 10px 28px rgba(20, 34, 27, .08);
+      --radius: 8px;
+      --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --sans: "MiSans", "HarmonyOS Sans SC", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    body {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,251,.82), rgba(239,242,236,.92) 520px),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(17,24,20,.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17,24,20,.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.58), transparent 72%);
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    ::selection {
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .shell {
+      grid-template-columns: minmax(0, 1fr) 296px;
+    }
+
+    .sidebar {
+      margin: 24px 0;
+      padding: 18px 22px;
+      border-left: 1px solid var(--line);
+      border-right: 0;
+      background: rgba(253, 253, 248, .88);
+      box-shadow: inset 1px 0 0 rgba(255,255,255,.72);
+    }
+
+    .toc {
+      margin: 0 0 22px;
+    }
+
+    .side-title {
+      margin-bottom: 12px;
+      color: var(--muted-2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: none;
+    }
+
+    .toc a {
+      position: relative;
+      min-height: 42px;
+      padding: 8px 10px 8px 12px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: #26332d;
+      font-weight: 700;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease, color .18s ease;
+    }
+
+    .toc a::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: transparent;
+      flex: 0 0 auto;
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      border-color: rgba(23,122,82,.20);
+      background: rgba(226,241,232,.72);
+      color: var(--accent-deep);
+      transform: translateX(-2px);
+    }
+
+    .toc a.is-active::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(23,122,82,.12);
+    }
+
+    .toc svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.1;
+    }
+
+    .side-note {
+      position: relative;
+      padding: 16px;
+      border: 1px solid rgba(23,122,82,.24);
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.05) 0 1px, transparent 1px 9px),
+        var(--paper-soft);
+      color: #394640;
+      font-size: 13px;
+      box-shadow: var(--shadow-tight);
+    }
+
+    .mobile-topbar {
+      background: rgba(253,253,248,.94);
+    }
+
+    .mobile-topbar select {
+      border-color: var(--line-strong);
+      background: var(--paper-strong);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+      gap: clamp(26px, 4vw, 54px);
+      align-items: center;
+      width: min(1180px, 100%);
+      margin-inline: auto;
+      min-height: min(620px, calc(100dvh - 1px));
+      padding: clamp(38px, 5vw, 70px) clamp(22px, 5vw, 72px) clamp(34px, 4vw, 54px);
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      display: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      padding: 7px 11px;
+      border-color: rgba(23,122,82,.28);
+      border-radius: var(--radius);
+      background: rgba(226,241,232,.68);
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 5.4vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-text {
+      max-width: 560px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.6vw, 19px);
+    }
+
+    .hero-actions {
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      min-height: 44px;
+      padding: 10px 15px;
+      border-color: var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--paper-strong);
+      color: var(--ink);
+      box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(23,122,82,.25);
+    }
+
+    .button:hover {
+      border-color: rgba(23,122,82,.45);
+      box-shadow: var(--shadow-tight);
+      transform: translateY(-2px);
+    }
+
+    .button:active,
+    .copy-btn:active,
+    .lightbox-close:active {
+      transform: translateY(1px);
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      padding: 14px;
+      border: 1px solid rgba(17,24,20,.12);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.90), rgba(247,248,241,.88)),
+        var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--accent-deep);
+    }
+
+    .hero-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(23,122,82,.12);
+    }
+
+    .hero-snapshot {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #e9eee8;
+    }
+
+    .hero-snapshot img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top left;
+    }
+
+    .hero-snapshot figcaption {
+      padding: 8px 10px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .route-list {
+      display: grid;
+      gap: 0;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(253,253,248,.72);
+    }
+
+    .route-list li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 11px 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .route-list li:first-child {
+      border-top: 0;
+    }
+
+    .route-list span {
+      color: var(--accent-deep);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .route-list strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .route-list small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .content {
+      width: min(1180px, 100%);
+      padding: 38px clamp(18px, 4vw, 54px) 82px;
+    }
+
+    .quick-grid {
+      grid-template-columns: 1.1fr 1fr 1fr 1.1fr;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .quick-card {
+      position: relative;
+      min-height: 146px;
+      padding: 18px;
+      border-color: rgba(17,24,20,.11);
+      border-radius: var(--radius);
+      background: rgba(253,253,248,.86);
+      box-shadow: var(--shadow-tight);
+      overflow: hidden;
+    }
+
+    .quick-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 3px;
+      background: var(--accent);
+      opacity: .78;
+    }
+
+    .quick-card:nth-child(2) {
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.07) 0 1px, transparent 1px 11px),
+        rgba(253,253,248,.88);
+    }
+
+    .quick-card:nth-child(3) {
+      background:
+        linear-gradient(180deg, rgba(226,241,232,.92), rgba(253,253,248,.9));
+    }
+
+    .quick-card span {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(23,122,82,.25);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
+    .quick-card h2 {
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .quick-card p {
+      color: var(--muted);
+    }
+
+    .learning-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      margin: 0 0 44px;
+      padding: 20px;
+      border: 1px solid rgba(23,122,82,.22);
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.055) 0 1px, transparent 1px 12px),
+        rgba(253,253,248,.86);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .learning-strip h2 {
+      margin: 0 0 6px;
+      font-size: clamp(22px, 2.4vw, 30px);
+    }
+
+    .learning-strip p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .doc-section {
+      scroll-margin-top: 30px;
+      margin-top: 52px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(17,24,20,.10);
+    }
+
+    .section-head {
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .section-kicker svg,
+    .callout svg,
+    .button svg,
+    .copy-btn svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    h2 {
+      margin-top: 7px;
+      font-size: clamp(28px, 3.2vw, 42px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .section-desc {
+      max-width: 800px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .panel {
+      border: 1px solid rgba(17,24,20,.10);
+      border-radius: var(--radius);
+      background: rgba(253,253,248,.74);
+      box-shadow: var(--shadow-tight);
+      overflow: hidden;
+    }
+
+    .panel + .panel,
+    .callout + .panel,
+    .panel + .callout {
+      margin-top: 16px;
+    }
+
+    .panel-body {
+      padding: 18px;
+    }
+
+    .split {
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
+    }
+
+    .step-list {
+      gap: 10px;
+    }
+
+    .step {
+      position: relative;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 14px;
+      padding: 17px;
+      border-color: rgba(17,24,20,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(23,122,82,.26);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .step h3 {
+      font-size: 17px;
+    }
+
+    .step p {
+      color: var(--muted);
+    }
+
+    .callout {
+      align-items: start;
+      padding: 17px;
+      border: 1px solid rgba(178,79,56,.25);
+      border-left: 4px solid var(--warning);
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(135deg, rgba(178,79,56,.045) 0 1px, transparent 1px 10px),
+        #fffaf6;
+      color: #4d332d;
+      box-shadow: var(--shadow-tight);
+    }
+
+    .callout.green {
+      border-color: rgba(23,122,82,.26);
+      border-left-color: var(--accent);
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.055) 0 1px, transparent 1px 10px),
+        #f4fbf6;
+      color: #203b31;
+    }
+
+    .callout strong {
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .text-danger {
+      color: var(--warning);
+      font-weight: 900;
+    }
+
+    .pill {
+      border-color: rgba(23,122,82,.22);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      color: var(--accent-deep);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .link-list {
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.60);
+      overflow: hidden;
+    }
+
+    .link-list li {
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      padding: 14px;
+    }
+
+    .link-list li:first-child {
+      border-top: 0;
+    }
+
+    .link-list svg {
+      color: var(--accent);
+    }
+
+    .agent-setup {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 18px;
+      border: 1px solid rgba(23,122,82,.24);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.045) 0 1px, transparent 1px 12px),
+        rgba(253,253,248,.88);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .agent-setup strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .agent-setup p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .agent-tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .agent-tool-card {
+      border: 1px solid rgba(17,24,20,.10);
+      border-radius: var(--radius);
+      background: rgba(253,253,248,.78);
+      box-shadow: var(--shadow-tight);
+      overflow: hidden;
+    }
+
+    .agent-tool-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 17px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.56);
+    }
+
+    .agent-tool-head svg {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .agent-tool-head h3 {
+      margin: 0 0 4px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .agent-tool-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .agent-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .agent-steps li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      padding: 14px 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .agent-steps li:first-child {
+      border-top: 0;
+    }
+
+    .agent-steps span {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent-deep);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .agent-steps strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .agent-steps p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .agent-doc-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 17px;
+      border-top: 1px solid var(--line);
+      background: rgba(226,241,232,.34);
+      color: var(--accent-deep);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .agent-doc-link svg {
+      width: 17px;
+      height: 17px;
+      margin-top: 3px;
+      flex: 0 0 auto;
+    }
+
+    .agent-field-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .agent-field {
+      padding: 14px;
+      border: 1px solid rgba(17,24,20,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.66);
+    }
+
+    .agent-field strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .agent-field p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.58;
+    }
+
+    .checklist {
+      gap: 11px;
+    }
+
+    .check {
+      border: 1px solid rgba(23,122,82,.24);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .media-grid {
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    details.shot {
+      border-color: rgba(17,24,20,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 1px 0 rgba(255,255,255,.82) inset;
+    }
+
+    details.shot summary {
+      min-height: 50px;
+      padding: 12px 14px;
+      color: #26332d;
+    }
+
+    details.shot summary::after {
+      border-color: rgba(23,122,82,.28);
+      border-radius: var(--radius);
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+    }
+
+    .shot-frame {
+      padding: 0 12px 12px;
+    }
+
+    .shot-frame img {
+      border-color: var(--line);
+      border-radius: var(--radius);
+      background: #eef2ec;
+      box-shadow: 0 12px 26px rgba(20,34,27,.08);
+    }
+
+    .command-stack {
+      gap: 11px;
+    }
+
+    .command {
+      border-color: rgba(15,23,19,.85);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), transparent),
+        var(--command);
+      color: #edf8f1;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .copy-btn {
+      border-radius: var(--radius);
+      transition: transform .16s ease, background .16s ease;
+    }
+
+    .panel.faq {
+      border-color: rgba(17,24,20,.12);
+      border-radius: var(--radius);
+      background: rgba(253,253,248,.80);
+      box-shadow: var(--shadow);
+    }
+
+    .faq details {
+      border-top-color: var(--line);
+    }
+
+    .faq summary {
+      min-height: 58px;
+      padding: 18px 20px;
+      color: var(--ink);
+    }
+
+    .faq summary::after {
+      color: var(--accent-deep);
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px;
+    }
+
+    .faq .step {
+      border-top-color: var(--line);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .footer {
+      margin-top: 54px;
+      color: var(--muted);
+    }
+
+    .lightbox {
+      background: rgba(11, 17, 14, .86);
+    }
+
+    .lightbox img,
+    .lightbox-close {
+      border-radius: var(--radius);
+    }
+
+    .pricing-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .pricing-summary,
+    .pricing-metrics,
+    .pricing-source {
+      border: 1px solid rgba(17,24,20,.12);
+      border-radius: var(--radius);
+      background: rgba(253,253,248,.82);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .pricing-summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 230px;
+      padding: clamp(22px, 4vw, 38px);
+      background:
+        repeating-linear-gradient(135deg, rgba(23,122,82,.05) 0 1px, transparent 1px 12px),
+        rgba(253,253,248,.90);
+    }
+
+    .pricing-unit {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 16px;
+      padding: 6px 10px;
+      border: 1px solid rgba(23,122,82,.28);
+      border-radius: var(--radius);
+      background: rgba(226,241,232,.68);
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .pricing-summary h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .pricing-summary p {
+      margin: 14px 0 0;
+      color: var(--muted);
+    }
+
+    .pricing-danger {
+      color: var(--warning);
+      font-weight: 900;
+    }
+
+    .pricing-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .pricing-metric {
+      min-height: 112px;
+      padding: 14px;
+      border: 1px solid rgba(17,24,20,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+    }
+
+    .pricing-metric span,
+    .pricing-metric small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .pricing-metric strong {
+      display: block;
+      margin: 9px 0;
+      color: var(--accent-deep);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .pricing-source {
+      margin: 14px 0 0;
+      padding: 15px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .pricing-source a {
+      font-weight: 800;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy,
+      .hero-panel,
+      .quick-card,
+      .doc-section {
+        animation: rise-in .56s ease both;
+      }
+
+      .hero-panel {
+        animation-delay: .08s;
+      }
+
+      .quick-card:nth-child(2) {
+        animation-delay: .04s;
+      }
+
+      .quick-card:nth-child(3) {
+        animation-delay: .08s;
+      }
+
+      .quick-card:nth-child(4) {
+        animation-delay: .12s;
+      }
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-topbar {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-panel {
+        max-width: 640px;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .pricing-overview {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 34px 18px 30px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .content {
+        padding: 30px 16px 56px;
+      }
+
+      .quick-grid,
+      .learning-strip,
+      .media-grid,
+      .agent-setup,
+      .agent-tool-grid,
+      .agent-field-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .agent-setup {
+        align-items: stretch;
+      }
+
+      .agent-steps li {
+        grid-template-columns: 34px minmax(0, 1fr);
+      }
+
+      .quick-card {
+        min-height: 122px;
+      }
+
+      .panel-body,
+      .faq-answer {
+        padding: 16px;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .route-list li {
+        grid-template-columns: 36px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+    }
+
+    @media print {
+      body::before,
+      .hero-panel {
+        display: none;
+      }
+
+      .hero {
+        display: block;
+      }
+    }
+
+    /* Keep the visible guide aligned with the public eight-part navigation. */
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quick-grid {
+      order: 0;
+    }
+
+    #start {
+      order: 1;
+    }
+
+    #ccswitch {
+      order: 2;
+    }
+
+    #codex-app {
+      order: 4;
+    }
+
+    #codex-cli {
+      order: 3;
+    }
+
+    #claude-app {
+      order: 6;
+    }
+
+    #claude-cli {
+      order: 5;
+    }
+
+    #agent-manual {
+      order: 7;
+    }
+
+    #pricing {
+      order: 8;
+    }
+
+    #faq {
+      order: 9;
+    }
+
+    /* The FAQ's single screenshot should use the full content width. */
+    .faq .media-grid details.shot:only-child {
+      grid-column: 1 / -1;
+    }
+
+    /* Keep the screenshot control state visible inside the FAQ panel. */
+    .faq .media-grid details.shot summary::after {
+      content: "+";
+      pointer-events: none;
+    }
+
+    .faq .media-grid details.shot[open] summary::after {
+      content: "-";
+    }
+
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    // Inline icon registry keeps the page fully self-contained.
+    const iconPaths = {
+      "app-window": '<rect width="18" height="14" x="3" y="5" rx="2"></rect><path d="M3 9h18"></path><path d="M7 7h.01"></path><path d="M10 7h.01"></path>',
+      "badge-alert": '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.75Z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>',
+      "badge-dollar-sign": '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.75Z"></path><path d="M12 6v12"></path><path d="M15 9.5c-.5-.8-1.4-1.2-3-1.2-1.8 0-3 .8-3 2.1 0 1.3 1.1 1.8 3 2.1 2 .3 3 .9 3 2.2 0 1.2-1.1 2.1-3 2.1-1.6 0-2.7-.4-3.4-1.4"></path>',
+      bot: '<path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path>',
+      "book-open": '<path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H3Z"></path><path d="M21 18a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2h-5a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h6Z"></path>',
+      check: '<path d="M20 6 9 17l-5-5"></path>',
+      "circle-help": '<circle cx="12" cy="12" r="10"></circle><path d="M9.1 9a3 3 0 1 1 5.8 1c-.4.8-1.1 1.2-1.8 1.7-.7.5-1.1 1-1.1 2.3"></path><path d="M12 17h.01"></path>',
+      copy: '<rect width="14" height="14" x="8" y="8" rx="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>',
+      download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path>',
+      "external-link": '<path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>',
+      flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.4 0 2.5-1.1 2.5-2.5 0-1.2-.8-2-1.7-2.7C10.9 11.1 10 10.3 10 9c-1.7 1.2-3 2.8-3 5a5 5 0 0 0 10 0c0-2.8-1.5-5.2-3.6-7.2C11.3 4.9 10 3.6 10 2c-3 2-6 5.4-6 10a8 8 0 0 0 16 0c0-1.2-.2-2.4-.6-3.5"></path>',
+      "key-round": '<path d="M2 18a6 6 0 1 1 11.8-1.5L22 8.3V5h-3.3L17 6.7V4h-3v3h-3v3H8.5A6 6 0 0 1 2 18Z"></path><circle cx="7" cy="18" r="1"></circle>',
+      "list-checks": '<path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path><path d="M13 6h8"></path><path d="M13 12h8"></path><path d="M13 18h8"></path>',
+      "monitor-down": '<path d="M12 13V7"></path><path d="m15 10-3 3-3-3"></path><rect width="20" height="14" x="2" y="3" rx="2"></rect><path d="M12 17v4"></path><path d="M8 21h8"></path>',
+      "mouse-pointer-click": '<path d="m9 9 5 12 1.8-5.2L21 14 9 9Z"></path><path d="M7.2 2.2 8 5.1"></path><path d="m2.2 7.2 2.9.8"></path><path d="m14.8 2.2-.8 2.9"></path><path d="m2.2 14.8 2.9-.8"></path>',
+      play: '<polygon points="6 3 20 12 6 21 6 3"></polygon>',
+      rocket: '<path d="M4.5 16.5c-1.5 1.3-2 3.1-2 5 1.9 0 3.7-.5 5-2"></path><path d="M9 15 4 10l5-2 2-5c3.7.8 6.5 3.6 7.3 7.3l-5 2-2 5Z"></path><path d="M15 9h.01"></path>',
+      "shield-alert": '<path d="M20 13c0 5-3.5 7.5-7.7 8.8a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.4a1.4 1.4 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>',
+      terminal: '<path d="m4 17 6-6-6-6"></path><path d="M12 19h8"></path>',
+      "terminal-square": '<path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2"></rect>',
+      "triangle-alert": '<path d="m21.7 18-8.6-15a1.3 1.3 0 0 0-2.2 0L2.3 18a1.3 1.3 0 0 0 1.1 2h17.2a1.3 1.3 0 0 0 1.1-2Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path>',
+      wifi: '<path d="M5 13a10 10 0 0 1 14 0"></path><path d="M8.5 16.5a5 5 0 0 1 7 0"></path><path d="M2 8.8a15 15 0 0 1 20 0"></path><path d="M12 20h.01"></path>',
+      wrench: '<path d="M14.7 6.3a4 4 0 0 0-5 5L2 19l3 3 7.7-7.7a4 4 0 0 0 5-5l-2.6 2.6-3-3Z"></path>',
+      x: '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>'
+    };
+
+    function iconSvg(name) {
+      const path = iconPaths[name] || iconPaths["circle-help"];
+      return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+    }
+
+    function createIcons() {
+      document.querySelectorAll("i[data-lucide]").forEach((icon) => {
+        icon.innerHTML = iconSvg(icon.getAttribute("data-lucide"));
+      });
+    }
+
+    function handleMobileNav(select) {
+      const value = select.value;
+      if (!value) return;
+      location.hash = value;
+    }
+
+    // Command copy buttons.
+    const copyButtons = document.querySelectorAll("[data-copy]");
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        const text = button.getAttribute("data-copy");
+        try {
+          await navigator.clipboard.writeText(text);
+          button.classList.add("copied");
+          button.innerHTML = iconSvg("check");
+          setTimeout(() => {
+            button.classList.remove("copied");
+            button.innerHTML = iconSvg("copy");
+          }, 1200);
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(button.previousElementSibling);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+      });
+    });
+
+    // Screenshots in the same two-column row open and close together.
+    document.querySelectorAll(".media-grid").forEach((grid, gridIndex) => {
+      const shots = [...grid.querySelectorAll("details.shot")];
+      shots.forEach((shot, shotIndex) => {
+        const rowIndex = Math.floor(shotIndex / 2);
+        shot.dataset.shotPair = `grid-${gridIndex}-row-${rowIndex}`;
+        shot.addEventListener("toggle", () => {
+          shots
+            .filter((other, otherIndex) => other !== shot && Math.floor(otherIndex / 2) === rowIndex)
+            .forEach((other) => {
+              if (other.open !== shot.open) other.open = shot.open;
+            });
+        });
+      });
+    });
+
+    // Screenshot lightbox.
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImage = lightbox.querySelector("img");
+    const lightboxClose = lightbox.querySelector(".lightbox-close");
+
+    function openLightbox(image) {
+      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.alt = image.alt || "截图放大预览";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImage.src = "";
+      lightboxImage.alt = "";
+    }
+
+    document.querySelectorAll(".shot-frame img").forEach((image) => {
+      image.setAttribute("tabindex", "0");
+      image.setAttribute("title", "点击放大查看");
+      image.addEventListener("click", () => openLightbox(image));
+      image.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(image);
+        }
+      });
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+
+    // Keep the desktop table of contents in sync with the visible section.
+    const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
+    const sections = tocLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      tocLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
+      });
+    }, { rootMargin: "-18% 0px -64% 0px", threshold: [0.08, 0.2, 0.4] });
+
+    sections.forEach((section) => observer.observe(section));
+    createIcons();
+  </script>
+</body>
+</html>
