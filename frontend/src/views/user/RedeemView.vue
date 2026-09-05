@@ -368,7 +368,8 @@ const appStore = useAppStore()
 const subscriptionStore = useSubscriptionStore()
 
 // 兑换码商店地址，用于引导用户购买或获取兑换码
-const REDEEM_SHOP_URL = 'https://pay.ldxp.cn/shop/CIZ994ED'
+// const REDEEM_SHOP_URL = 'https://pay.ldxp.cn/shop/CIZ994ED'
+const REDEEM_SHOP_URL = 'https://wzyp.cn/shop/CIZ994ED'
 
 const user = computed(() => authStore.user)
 
