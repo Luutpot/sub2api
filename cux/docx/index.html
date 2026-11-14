@@ -8,22 +8,31 @@
 </head>
 <body>
   <div class="mobile-topbar">
-    <select aria-label="页面目录" onchange="handleMobileNav(this)">
-      <option value="#start">开始使用</option>
-      <option value="#ccswitch">CC Switch</option>
-      <option value="#codex-cli">Codex CLI</option>
-      <option value="#codex-app">Codex App</option>
-      <option value="#claude-cli">Claude Code CLI</option>
-      <option value="#claude-app">Claude App</option>
-      <option value="#agent-manual">小龙虾配置</option>
-      <option value="#pricing">价格说明</option>
-      <option value="#faq">常见问题</option>
-    </select>
+    <details class="mobile-nav-menu">
+      <summary class="mobile-nav-toggle">
+        <i data-lucide="list-checks"></i>
+        <span class="mobile-nav-current">快速开始</span>
+        <i class="mobile-nav-chevron" data-lucide="chevron-down"></i>
+      </summary>
+      <nav class="mobile-nav-links" aria-label="移动端文档导航">
+        <a href="#overview" class="is-active" aria-current="location"><i data-lucide="play"></i><span>快速开始</span></a>
+        <a href="#models"><i data-lucide="book-open"></i><span>模型列表</span></a>
+        <a href="#start"><i data-lucide="rocket"></i><span>开始使用</span></a>
+        <a href="#ccswitch"><i data-lucide="key-round"></i><span>CC Switch</span></a>
+        <a href="#codex-cli"><i data-lucide="terminal-square"></i><span>Codex CLI</span></a>
+        <a href="#codex-app"><i data-lucide="app-window"></i><span>Codex App</span></a>
+        <a href="#claude-cli"><i data-lucide="bot"></i><span>Claude Code CLI</span></a>
+        <a href="#claude-app"><i data-lucide="app-window"></i><span>Claude App</span></a>
+        <a href="#agent-manual"><i data-lucide="wrench"></i><span>小龙虾配置</span></a>
+        <a href="#pricing"><i data-lucide="badge-dollar-sign"></i><span>价格说明</span></a>
+        <a href="#faq"><i data-lucide="circle-help"></i><span>常见问题</span></a>
+      </nav>
+    </details>
   </div>
 
   <div class="shell">
     <main class="main">
-      <header class="hero">
+      <header id="overview" class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><i data-lucide="flame"></i>从密钥到客户端启动</div>
           <h1>快速开始</h1>
@@ -81,6 +90,89 @@
             <h2>启动工具</h2>
             <p>打开 Codex App，或在终端启动 Codex / Claude Code CLI。</p>
           </article>
+        </section>
+
+        <section id="models" class="doc-section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker"><i data-lucide="book-open"></i>模型能力</div>
+              <h2>模型列表</h2>
+              <p class="section-desc">选择模型厂商，再展开分组查看支持的模型、分组倍率与生图按张计费价格。</p>
+            </div>
+          </div>
+
+          <!-- 新增厂商时追加页签及对应面板，保持 id 和 ARIA 关联唯一。 -->
+          <div class="model-vendor-tabs" role="tablist" aria-label="模型厂商">
+            <button id="model-tab-openai" class="model-vendor-tab" type="button" role="tab" aria-controls="model-vendor-openai" aria-selected="true" tabindex="0">OpenAI</button>
+          </div>
+
+          <div id="model-vendor-openai" class="model-vendor-panel" role="tabpanel" aria-labelledby="model-tab-openai">
+            <details class="panel model-group" name="model-vendor-openai" open>
+              <summary><h3>codex-plus</h3></summary>
+              <div class="panel-body">
+                <p>分组倍率：<strong>0.3x</strong>。支持生图，按张计费：</p>
+                <div class="pills">
+                  <span class="pill">1K：$0.2/张</span>
+                  <span class="pill">2K：$0.25/张</span>
+                  <span class="pill">4K：$0.3/张</span>
+                </div>
+                <h4>支持的模型</h4>
+                <div class="model-list" role="region" aria-label="codex-plus 模型列表">
+                  <div class="pills model-name-grid">
+                    <span class="pill">gpt-5.5</span>
+                    <span class="pill">gpt-5.6-luna</span>
+                    <span class="pill">gpt-5.6-sol</span>
+                    <span class="pill">gpt-5.6-terra</span>
+                    <span class="pill">gpt-6-luna</span>
+                    <span class="pill">gpt-6-sol</span>
+                    <span class="pill">gpt-6-astra</span>
+                    <span class="pill">gpt-6.1-terra</span>
+                    <span class="pill">gpt-6.1-sol</span>
+                    <span class="pill">codex-auto-review</span>
+                    <span class="pill">gpt-image-2</span>
+                    <span class="pill">gpt-image-2.5</span>
+                    <span class="pill">gpt-image-2.5-flare</span>
+                    <span class="pill">gpt-image-2.5-sunburst</span>
+                    <span class="pill">gpt-image-2.6-flare</span>
+                    <span class="pill">gpt-image-2.6-sunburst</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="panel model-group" name="model-vendor-openai">
+              <summary><h3>codex-pro</h3></summary>
+              <div class="panel-body">
+                <p>分组倍率：<strong>0.5x</strong>。支持生图，按张计费：</p>
+                <div class="pills">
+                  <span class="pill">1K：$0.2/张</span>
+                  <span class="pill">2K：$0.25/张</span>
+                  <span class="pill">4K：$0.3/张</span>
+                </div>
+                <h4>支持的模型</h4>
+                <div class="model-list" role="region" aria-label="codex-pro 模型列表">
+                  <div class="pills model-name-grid">
+                    <span class="pill">gpt-5.5</span>
+                    <span class="pill">gpt-5.6-luna</span>
+                    <span class="pill">gpt-5.6-sol</span>
+                    <span class="pill">gpt-5.6-terra</span>
+                    <span class="pill">gpt-6-luna</span>
+                    <span class="pill">gpt-6-sol</span>
+                    <span class="pill">gpt-6-astra</span>
+                    <span class="pill">gpt-6.1-terra</span>
+                    <span class="pill">gpt-6.1-sol</span>
+                    <span class="pill">codex-auto-review</span>
+                    <span class="pill">gpt-image-2</span>
+                    <span class="pill">gpt-image-2.5</span>
+                    <span class="pill">gpt-image-2.5-flare</span>
+                    <span class="pill">gpt-image-2.5-sunburst</span>
+                    <span class="pill">gpt-image-2.6-flare</span>
+                    <span class="pill">gpt-image-2.6-sunburst</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
         </section>
 
         <section id="start" class="doc-section">
@@ -645,7 +737,9 @@
 
     <aside class="sidebar" aria-label="文档导航">
       <nav class="toc">
-        <a href="#start" class="is-active"><i data-lucide="rocket"></i><span>开始使用</span></a>
+        <a href="#overview" class="is-active" aria-current="location"><i data-lucide="play"></i><span>快速开始</span></a>
+        <a href="#models"><i data-lucide="book-open"></i><span>模型列表</span></a>
+        <a href="#start"><i data-lucide="rocket"></i><span>开始使用</span></a>
         <a href="#ccswitch"><i data-lucide="key-round"></i><span>CC Switch</span></a>
         <a href="#codex-cli"><i data-lucide="terminal-square"></i><span>Codex CLI</span></a>
         <a href="#codex-app"><i data-lucide="app-window"></i><span>Codex App</span></a>
@@ -700,7 +794,7 @@
 
     body {
       margin: 0;
-      min-width: 320px;
+      min-width: 0;
       background:
         linear-gradient(180deg, rgba(255,255,255,.84), rgba(246,247,242,.92) 420px),
         var(--bg);
@@ -1359,17 +1453,6 @@
       backdrop-filter: blur(14px);
     }
 
-    .mobile-topbar select {
-      width: 100%;
-      min-height: 40px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: #fff;
-      color: var(--ink);
-      padding: 0 10px;
-      font: inherit;
-    }
-
     @media (max-width: 1040px) {
       .shell {
         grid-template-columns: 1fr;
@@ -1490,6 +1573,18 @@
       --radius: 8px;
       --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
       --sans: "MiSans", "HarmonyOS Sans SC", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+      /* 移动目录下的锚点留白，以及图片放大层的可用尺寸配置。 */
+      --page-mobile-anchor-offset: 88px;
+      --page-lightbox-gap: 24px;
+      --page-lightbox-max-width: 1180px;
+      /* 移动目录开关、浮层及键盘焦点的尺寸配置。 */
+      --mobile-nav-control-height: 44px;
+      --mobile-nav-icon-size: 18px;
+      --mobile-nav-font-size: 16px;
+      --mobile-nav-border-width: 1px;
+      --mobile-nav-focus-width: 2px;
+      --mobile-nav-menu-offset: 96px;
+      --mobile-nav-open-rotation: 180deg;
     }
 
     body {
@@ -1608,13 +1703,6 @@
 
     .mobile-topbar {
       background: rgba(253,253,248,.94);
-    }
-
-    .mobile-topbar select {
-      border-color: var(--line-strong);
-      background: var(--paper-strong);
-      color: var(--ink);
-      font-weight: 700;
     }
 
     .main {
@@ -2649,6 +2737,254 @@
       content: "-";
     }
 
+    /* 模型组件复用页面主题，仅在本章节内设置间距与交互样式。 */
+    #models {
+      --model-control-space: 16px;
+      --model-border-width: 1px;
+      --model-focus-width: 2px;
+      /* 每排固定五个模型，最小列宽保证现有名称易于阅读。 */
+      /* 上述为原固定列布局；当前列数表示宽屏上限，窄屏按可用宽度自动减列。 */
+      --model-column-count: 5;
+      --model-name-min-width: 180px;
+      --model-column-gap: var(--radius);
+    }
+
+    #models .model-vendor-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--radius);
+      padding: var(--model-focus-width);
+      margin-bottom: var(--model-control-space);
+    }
+
+    #models .model-vendor-tab {
+      flex-shrink: 0;
+      max-width: 100%;
+      padding: var(--radius) var(--model-control-space);
+      border: var(--model-border-width) solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+      font-weight: bold;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+    }
+
+    #models .model-vendor-tab[aria-selected="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    #models .model-vendor-tab:focus-visible,
+    #models .model-group > summary:focus-visible {
+      outline: var(--model-focus-width) solid var(--accent);
+      outline-offset: calc(0px - var(--model-focus-width));
+    }
+
+    #models .model-vendor-panel[hidden] {
+      display: none;
+    }
+
+    #models .model-group > summary {
+      padding: var(--model-control-space);
+      color: var(--ink);
+      cursor: pointer;
+      overflow-wrap: anywhere;
+    }
+
+    #models .model-group > summary::marker {
+      color: var(--accent-deep);
+    }
+
+    #models .model-group > summary h3 {
+      display: inline;
+      margin: 0;
+      font-size: inherit;
+    }
+
+    #models .model-group[open] > summary {
+      border-bottom: var(--model-border-width) solid var(--line);
+      background: var(--accent-soft);
+    }
+
+    /* 宽度不足时仅滚动模型列表，保持五列和名称左对齐。 */
+    /* 上述为原横向滚动策略；当前列表通过自动减列完整展示，不再设置滚动区域。 */
+    #models .model-list {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    #models .model-name-grid {
+      /* 均分五列所需的宽度作为下限之一，确保宽屏不超过五列；不足一列时允许缩至容器宽度。 */
+      --model-track-min-width: min(100%, max(
+        var(--model-name-min-width),
+        calc((100% + var(--model-column-gap)) / var(--model-column-count) - var(--model-column-gap))
+      ));
+      display: grid;
+      gap: var(--model-column-gap);
+      grid-template-columns: repeat(auto-fit, minmax(var(--model-track-min-width), 1fr));
+    }
+
+    #models .model-name-grid > .pill {
+      min-width: 0;
+      justify-content: flex-start;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+    /* 正文中的长网址、代码标识和 flex 子项应换行或收缩，避免被卡片边界裁切。 */
+    .hero,
+    .content {
+      overflow-wrap: anywhere;
+    }
+
+    .hero > *,
+    .doc-section,
+    .link-list li > div,
+    .agent-tool-head > div,
+    .agent-doc-link > div,
+    .agent-setup > div,
+    .route-list li > div,
+    .step > div,
+    .callout > div {
+      min-width: 0;
+    }
+
+    .button,
+    .content .pill {
+      min-width: 0;
+      max-width: 100%;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-panel-head {
+      flex-wrap: wrap;
+    }
+
+    /* 页面内的折叠目录保持与正文一致的主题，展开列表不依赖系统选择器样式。 */
+    .mobile-nav-menu {
+      position: relative;
+      min-width: 0;
+    }
+
+    .mobile-nav-toggle {
+      display: grid;
+      grid-template-columns: var(--mobile-nav-icon-size) minmax(0, 1fr) var(--mobile-nav-icon-size);
+      align-items: center;
+      gap: var(--radius);
+      min-height: var(--mobile-nav-control-height);
+      padding: var(--radius) calc(var(--radius) + var(--radius));
+      border: var(--mobile-nav-border-width) solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--paper-strong);
+      color: var(--accent-deep);
+      box-shadow: var(--shadow-tight);
+      font-size: var(--mobile-nav-font-size);
+      font-weight: bold;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .mobile-nav-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-nav-current,
+    .mobile-nav-links a span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .mobile-nav-toggle svg,
+    .mobile-nav-links svg {
+      display: block;
+      width: var(--mobile-nav-icon-size);
+      height: var(--mobile-nav-icon-size);
+      flex-shrink: 0;
+    }
+
+    .mobile-nav-menu[open] > .mobile-nav-toggle {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .mobile-nav-menu[open] .mobile-nav-chevron {
+      transform: rotate(var(--mobile-nav-open-rotation));
+    }
+
+    .mobile-nav-links {
+      position: absolute;
+      top: calc(100% + var(--radius));
+      inset-inline: 0;
+      max-width: 100%;
+      max-height: calc(100vh - var(--mobile-nav-menu-offset));
+      max-height: calc(100dvh - var(--mobile-nav-menu-offset));
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: var(--radius);
+      border: var(--mobile-nav-border-width) solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-nav-links a {
+      display: flex;
+      align-items: center;
+      gap: var(--radius);
+      min-height: var(--mobile-nav-control-height);
+      padding: var(--radius);
+      border: var(--mobile-nav-border-width) solid transparent;
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.is-active {
+      border-color: var(--line-strong);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+    }
+
+    .mobile-nav-toggle:focus-visible,
+    .mobile-nav-links a:focus-visible {
+      outline: var(--mobile-nav-focus-width) solid var(--accent);
+      outline-offset: calc(0px - var(--mobile-nav-focus-width));
+    }
+
+    details.shot summary::after,
+    .faq summary::after {
+      flex-shrink: 0;
+    }
+
+    /* 放大图片按扣除留白后的视口约束高度，兼容手机横屏及动态地址栏。 */
+    .lightbox {
+      padding: var(--page-lightbox-gap);
+    }
+
+    .lightbox img {
+      min-width: 0;
+      min-height: 0;
+      max-width: min(var(--page-lightbox-max-width), 100%);
+      max-height: calc(100vh - var(--page-lightbox-gap) - var(--page-lightbox-gap));
+      max-height: calc(100dvh - var(--page-lightbox-gap) - var(--page-lightbox-gap));
+      object-fit: contain;
+    }
+
+    @media (max-width: 1180px) {
+      /* 此断点开始显示粘性顶部目录，锚点需要避开其高度。 */
+      .doc-section,
+      #overview {
+        scroll-margin-top: var(--page-mobile-anchor-offset);
+      }
+    }
+
   </style>
 
   <!-- Scripts -->
@@ -2661,6 +2997,7 @@
       bot: '<path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path>',
       "book-open": '<path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H3Z"></path><path d="M21 18a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2h-5a3 3 0 0 0-3 3v15a3 3 0 0 1 3-3h6Z"></path>',
       check: '<path d="M20 6 9 17l-5-5"></path>',
+      "chevron-down": '<path d="m6 9 6 6 6-6"></path>',
       "circle-help": '<circle cx="12" cy="12" r="10"></circle><path d="M9.1 9a3 3 0 1 1 5.8 1c-.4.8-1.1 1.2-1.8 1.7-.7.5-1.1 1-1.1 2.3"></path><path d="M12 17h.01"></path>',
       copy: '<rect width="14" height="14" x="8" y="8" rx="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>',
       download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path>',
@@ -2692,11 +3029,114 @@
       });
     }
 
-    function handleMobileNav(select) {
-      const value = select.value;
-      if (!value) return;
-      location.hash = value;
+    // 按页签与面板的关联初始化厂商，新增厂商无需修改交互分支。
+    function initializeModelCatalog() {
+      const config = {
+        rootSelector: "#models",
+        tabSelector: ".model-vendor-tab",
+        panelSelector: ".model-vendor-panel",
+        groupSelector: "details.model-group",
+        summarySelector: "summary",
+        controlsAttribute: "aria-controls",
+        selectedAttribute: "aria-selected",
+        groupNameAttribute: "name",
+        selectedValue: "true",
+        unselectedValue: "false",
+        activeTabIndex: 0,
+        inactiveTabIndex: -1,
+        firstIndex: 0,
+        nextStep: 1,
+        previousStep: -1,
+        clickEvent: "click",
+        keydownEvent: "keydown",
+        keys: {
+          previous: "ArrowLeft",
+          next: "ArrowRight",
+          first: "Home",
+          last: "End"
+        }
+      };
+      const root = document.querySelector(config.rootSelector);
+      if (!root) return;
+
+      const panels = [...root.querySelectorAll(config.panelSelector)];
+      const vendors = [...root.querySelectorAll(config.tabSelector)]
+        .map((tab) => ({
+          tab,
+          panel: panels.find((panel) => panel.id === tab.getAttribute(config.controlsAttribute))
+        }))
+        .filter((vendor) => vendor.panel);
+      if (!vendors.length) return;
+
+      let activeVendor;
+
+      // 切换厂商时同步选中状态与可见性，并恢复首分组展开。
+      function activateModelVendor(vendor) {
+        if (activeVendor === vendor) return;
+        panels.forEach((panel) => {
+          panel.hidden = panel !== vendor.panel;
+        });
+        vendors.forEach((item) => {
+          const selected = item === vendor;
+          item.tab.setAttribute(config.selectedAttribute, selected ? config.selectedValue : config.unselectedValue);
+          item.tab.tabIndex = selected ? config.activeTabIndex : config.inactiveTabIndex;
+        });
+        vendor.groups.forEach((group, index) => {
+          group.open = index === config.firstIndex;
+        });
+        activeVendor = vendor;
+      }
+
+      vendors.forEach((vendor) => {
+        vendor.groups = [...vendor.panel.querySelectorAll(config.groupSelector)];
+        vendor.groups.forEach((group) => {
+          group.setAttribute(config.groupNameAttribute, vendor.panel.id);
+          const summary = group.querySelector(config.summarySelector);
+          if (!summary) return;
+          summary.addEventListener(config.clickEvent, (event) => {
+            if (event.defaultPrevented) return;
+            // 同步处理原生摘要的点击和键盘激活，兼容不支持 name 互斥的浏览器。
+            event.preventDefault();
+            const shouldOpen = !group.open;
+            vendor.groups.forEach((other) => {
+              other.open = other === group && shouldOpen;
+            });
+          });
+        });
+
+        vendor.tab.addEventListener(config.clickEvent, () => activateModelVendor(vendor));
+        vendor.tab.addEventListener(config.keydownEvent, (event) => {
+          const index = vendors.indexOf(vendor);
+          let nextIndex;
+          switch (event.key) {
+            case config.keys.previous:
+              nextIndex = (index + config.previousStep + vendors.length) % vendors.length;
+              break;
+            case config.keys.next:
+              nextIndex = (index + config.nextStep) % vendors.length;
+              break;
+            case config.keys.first:
+              nextIndex = config.firstIndex;
+              break;
+            case config.keys.last:
+              nextIndex = vendors.length + config.previousStep;
+              break;
+            default:
+              return;
+          }
+          event.preventDefault();
+          const nextVendor = vendors[nextIndex];
+          activateModelVendor(nextVendor);
+          nextVendor.tab.focus();
+        });
+      });
+
+      const initialVendor = vendors.find((vendor) => vendor.tab.getAttribute(config.selectedAttribute) === config.selectedValue)
+        || vendors[config.firstIndex];
+      activateModelVendor(initialVendor);
     }
+
+    initializeModelCatalog();
 
     // Command copy buttons.
     const copyButtons = document.querySelectorAll("[data-copy]");
@@ -2786,22 +3226,108 @@
     });
 
     // Keep the desktop table of contents in sync with the visible section.
-    const tocLinks = [...document.querySelectorAll('.toc a[href^="#"]')];
-    const sections = tocLinks
-      .map((link) => document.querySelector(link.getAttribute("href")))
-      .filter(Boolean);
+    // 统一同步封面及章节的两端目录状态，并管理移动折叠菜单。
+    function initializePageNavigation() {
+      const config = {
+        linkSelector: '.toc a[href^="#"], .mobile-nav-links a[href^="#"]',
+        menuSelector: ".mobile-nav-menu",
+        toggleSelector: ".mobile-nav-toggle",
+        currentLabelSelector: ".mobile-nav-current",
+        activeClass: "is-active",
+        currentAttribute: "aria-current",
+        currentValue: "location",
+        defaultHash: "#overview",
+        hashPrefix: "#",
+        closedState: false,
+        primaryButton: 0,
+        clickEvent: "click",
+        keydownEvent: "keydown",
+        hashchangeEvent: "hashchange",
+        escapeKey: "Escape",
+        observerName: "IntersectionObserver",
+        focusOptions: { preventScroll: true },
+        observerOptions: {
+          rootMargin: "-88px 0px 0px 0px",
+          threshold: [0, 0.08, 0.2, 0.4]
+        }
+      };
+      const navLinks = [...document.querySelectorAll(config.linkSelector)]
+        .filter((link) => document.getElementById(link.hash.slice(config.hashPrefix.length)));
+      if (!navLinks.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
-      tocLinks.forEach((link) => {
-        link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
+      const sections = [...new Set(navLinks.map((link) => document.getElementById(link.hash.slice(config.hashPrefix.length))))];
+      const mobileMenu = document.querySelector(config.menuSelector);
+      const mobileToggle = document.querySelector(config.toggleSelector);
+      const mobileCurrent = document.querySelector(config.currentLabelSelector);
+
+      // 选中状态仅接受有效目录锚点，同时更新当前章节名称与可访问状态。
+      function setActiveSection(hash) {
+        const activeLink = navLinks.find((link) => link.hash === hash);
+        if (!activeLink) return;
+        navLinks.forEach((link) => {
+          const selected = link.hash === hash;
+          link.classList.toggle(config.activeClass, selected);
+          if (selected) {
+            link.setAttribute(config.currentAttribute, config.currentValue);
+          } else {
+            link.removeAttribute(config.currentAttribute);
+          }
+        });
+        if (mobileCurrent) mobileCurrent.textContent = activeLink.textContent.trim();
+      }
+
+      // 关闭目录时避免将键盘焦点留在隐藏链接中，也不抢占菜单外的焦点。
+      function closeMobileNavigation() {
+        if (!mobileMenu || !mobileMenu.open) return;
+        const restoreFocus = mobileMenu.contains(document.activeElement);
+        mobileMenu.open = config.closedState;
+        if (restoreFocus && mobileToggle) mobileToggle.focus(config.focusOptions);
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener(config.clickEvent, (event) => {
+          if (event.defaultPrevented || event.button !== config.primaryButton
+            || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          setActiveSection(link.hash);
+          closeMobileNavigation();
+        });
       });
-    }, { rootMargin: "-18% 0px -64% 0px", threshold: [0.08, 0.2, 0.4] });
 
-    sections.forEach((section) => observer.observe(section));
+      document.addEventListener(config.clickEvent, (event) => {
+        if (mobileMenu && !mobileMenu.contains(event.target)) closeMobileNavigation();
+      });
+      document.addEventListener(config.keydownEvent, (event) => {
+        if (event.key !== config.escapeKey || !mobileMenu || !mobileMenu.open) return;
+        event.preventDefault();
+        closeMobileNavigation();
+      });
+      window.addEventListener(config.hashchangeEvent, () => {
+        setActiveSection(location.hash || config.defaultHash);
+        closeMobileNavigation();
+      });
+
+      const initialHash = navLinks.some((link) => link.hash === location.hash) ? location.hash : config.defaultHash;
+      setActiveSection(initialHash);
+      if (!(config.observerName in window)) return;
+
+      // 保留仍处于观察区域的章节，避免增量回调丢失可见状态；章节间空档沿用最近状态。
+      // 观察区域避开顶部目录，并按目录顺序选择首个可见章节，避免百分比根边距在横屏时过度压缩区域。
+      const visibleSections = new Set();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target);
+          } else {
+            visibleSections.delete(entry.target);
+          }
+        });
+        const visibleSection = sections.find((section) => visibleSections.has(section));
+        if (visibleSection) setActiveSection(`${config.hashPrefix}${visibleSection.id}`);
+      }, config.observerOptions);
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    initializePageNavigation();
     createIcons();
   </script>
 </body>
