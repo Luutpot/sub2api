@@ -422,7 +422,13 @@ const confirmPassword = ref('')
 // Public settings
 const registrationEnabled = ref<boolean>(true)
 const emailVerifyEnabled = ref<boolean>(false)
-const promoCodeEnabled = ref<boolean>(true)
+// Public settings are injected into the app store before Vue mounts. Use that
+// value for the first render so a disabled promo-code field never flashes
+// while the async settings request is still in flight. If injection is
+// unavailable, fail closed until the request explicitly enables the field.
+const promoCodeEnabled = ref<boolean>(
+  appStore.cachedPublicSettings?.promo_code_enabled === true
+)
 const invitationCodeEnabled = ref<boolean>(false)
 const affiliateEnabled = ref<boolean>(false)
 const turnstileEnabled = ref<boolean>(false)
@@ -1105,6 +1111,9 @@ async function handleRegister(): Promise<void> {
 function buildRegistrationErrorMessage(error: unknown, fallback: string): string {
   if (extractApiErrorCode(error) === 'EMAIL_DOMAIN_REGISTRATION_LIMIT') {
     return t('auth.emailDomainRegistrationLimit')
+  }
+  if (extractApiErrorCode(error) === 'EMAIL_BLOCKED') {
+    return t('auth.errors.EMAIL_BLOCKED')
   }
   return buildAuthErrorMessage(error, { fallback })
 }
